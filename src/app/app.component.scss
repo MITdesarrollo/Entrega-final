@@ -1,0 +1,23 @@
+.toolbar{
+  background: #5CE1E6;
+  background: -webkit-linear-gradient(to right,#5CE1E6,#FFDE59 );
+  background: linear-gradient(to right, #5CE1E6, #FFDE59);
+  .itemsTool{
+    display: flex;
+    justify-content: space-between;
+    .logoCurso{
+      font-family: 'League Spartan', sans-serif;
+      margin-top: 1rem;
+      font-size: 6rem;
+      font-style: italic;
+    }
+  }
+}
+
+
+.dynamic-container{
+      display: flex;
+      justify-content: center;
+      padding: 0 1rem;
+      width: 90%;
+    }

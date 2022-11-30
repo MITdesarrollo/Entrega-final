@@ -1,0 +1,39 @@
+<div class="container-register">
+  <div class="login">
+    <p routerLink="/login">ya estas registrado? Logueate aqui!</p>
+    <a mat-icon-button routerLink="/login">
+      <mat-icon color="primary">account_box</mat-icon>
+    </a>
+  </div>
+    <form [formGroup]="formularioRegister"  (ngSubmit)="validacionRegistro()" class="form">
+      <div class="row">
+        <div class="col-md-5">
+          <mat-form-field appearance="fill" class="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="usuario">
+            <p *ngIf="formularioRegister.get('usuario')?.touched && formularioRegister.get('usuario')?.errors?.['required']"> ¡Este campo es requerido!</p>
+            <p *ngIf="formularioRegister.get('usuario')?.touched && formularioRegister.get('usuario')?.errors?.['email']">¡Formato Email no valido!</p>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <mat-form-field appearance="fill" class="fill">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="contrasena">
+            <p *ngIf="formularioRegister.get('contrasena')?.touched && formularioRegister.get('contrasena')?.errors?.['required']"> ¡Este campo es requerido!</p>
+            <p *ngIf="formularioRegister.get('contrasena')?.touched && formularioRegister.get('contrasena')?.errors?.['minlength']">¡La contraseña debe tener al menos 6 caracteres!</p>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2" >
+          <button type="submit" mat-raised-button color="primary">Go</button>
+        </div>
+        <div class="toggle">
+          <mat-slide-toggle formControlName="admin">Sos admin?!</mat-slide-toggle>
+        </div>
+      </div>
+    </form>
+  </div>
+

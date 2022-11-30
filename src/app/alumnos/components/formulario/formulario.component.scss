@@ -1,0 +1,30 @@
+.container-form-alumnos {
+  margin-top: 2rem;
+  background-image: url(../../../../assets/images/banner-1.png);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid wheat;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  color: white;
+  .datos{
+    margin-left: 5rem;
+  }
+  .alta-alumno {
+    h1{
+      color: white;
+      border-bottom: 1px solid white;
+      margin-top: 2rem;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .btn-formulario{
+      button{
+        background-color: #5CE1E6;
+      }
+    }
+  }
+
+}

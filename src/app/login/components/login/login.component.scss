@@ -1,0 +1,37 @@
+.container-login {
+  margin-top: 2rem;
+  background-image: url(../../../../assets/images/banner-1.png);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid wheat;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+
+  .login {
+
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .toggle {
+    color: white;
+    margin-top: 1rem;
+  }
+
+  .fill {
+    color: white;
+  }
+}

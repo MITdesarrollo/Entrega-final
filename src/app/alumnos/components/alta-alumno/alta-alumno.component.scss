@@ -1,0 +1,39 @@
+.container-form-alumnos{
+    padding: 5rem;
+    .form{
+        display: flex;
+        padding: 4rem;
+        background-image: url(../../../../assets/images/back-form.png);
+        background-size: cover;
+        background-position: center;
+        border: 1px solid wheat;
+        border-radius: 10px;
+        width: 100%;
+        h1{
+            font-family: 'League Spartan', sans-serif;
+            color:  white;
+            font-size: 3rem;
+            font-style: italic;
+        }
+        
+        .formAlumno{
+            width: 35%;
+            
+        }
+    }
+
+    .nombreCursos{
+        border: 1px solid wheat;
+        border-radius: 5px;
+         display: flex ;
+         align-items: center;
+         justify-content: space-around;
+         margin-top: 1rem;
+         background: #38312f; 
+         
+
+         .nombreCursoInsc{
+            margin-bottom: 0;
+         }
+    }
+}

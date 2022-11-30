@@ -1,0 +1,53 @@
+<div class="container-courses">
+  <div class="row filtro">
+    <mat-form-field class="col-md-6">
+      <mat-label>Filtrar por nombre del curso</mat-label>
+      <input type="text" matInput (keyup)="filtrarCurso($event)"/>
+    </mat-form-field>
+    <div class="col-md-6">
+      <a mat-raised-button color="primary" routerLink="/courses/add-course"> Agregar curso</a>
+    </div>
+  </div>
+  <div class="container-cards-courses">
+    <div class="row cards-courses">
+      <div *ngFor="let curso of cursos$ | async" class="col-md-3">
+        <mat-card class="card-container">
+          <mat-card-header>
+            <mat-card-title>{{ curso.nombreCurso }}</mat-card-title>
+            <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <img mat-card-image [src]="curso.img" alt="cards"/>
+
+          <mat-card-content>
+            <p>Dictado por {{ curso.profesor }}</p>
+            <p>Inicial el {{ curso.fechaInicio | date: "dd/MM/YYYY" }}</p>
+            <p>Finaliza el {{ curso.fechaFin | date: "dd/MM/YYYY" }}</p>
+            <p [appBooleanStyle]="curso.inscripcionAbierta">
+              {{curso.inscripcionAbierta | booleanText: "Matricula abierta":"Matricula cerrada" | uppercase }}
+            </p>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <div>
+              <button mat-stroked-button color="accent"  (click)="obtenerCursoAInscribirse(curso.id)" [disabled]="deshabilitado">
+                Inscribirme
+              </button>
+              <button mat-icon-button color="primary" (click)="editarCurso(curso)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="eliminarCurso(curso)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-icon-button [routerLink]="'/courses/'+ curso.id">
+                <mat-icon>visibility</mat-icon>
+              </button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+

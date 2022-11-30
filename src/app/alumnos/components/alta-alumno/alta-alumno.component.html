@@ -1,0 +1,71 @@
+<div class="container-fluid container-form-alumnos">
+  <div ngClass="form" *ngIf="alumnoData as alumno">
+  <form [formGroup]="formularioAltaAlumno"  class="formAlumno">
+    <div *ngIf="alumno.length === 0">
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field appearance="fill">
+            <mat-label>Dni Alumno</mat-label>
+            <input matInput formControlName="dni">
+          </mat-form-field>
+        </div>
+        <div class="col-md-12 ">
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre Alumno</mat-label>
+            <input matInput formControlName="nombre">
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field appearance="fill">
+            <mat-label>Apellido Alumno</mat-label>
+            <input matInput formControlName="apellido">
+          </mat-form-field>
+        </div>
+        <div class="col-md-12">
+          <mat-form-field appearance="fill" class="fill">
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input matInput [matDatepicker]="fechaNacimiento" formControlName="fechaNacimiento">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="fechaNacimiento"></mat-datepicker-toggle>
+            <mat-datepicker #fechaNacimiento></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row boton">
+        <div class="col-md-12">
+          <button mat-raised-button color="primary" type="submit" (click)="altaAlumno()"
+                  [disabled]="formularioAltaAlumno.invalid">Alta Alumno
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div>
+    <h1>Completa tus datos!!</h1>
+  </div>
+</div>
+  <div *ngIf="dadoAlta" class="detalleAlumno">
+    <div *ngIf="alumnoData as alumno">
+      <mat-card class="example-card" *ngIf="alumno.length > 0">
+        <mat-card-title>Alumno:</mat-card-title>
+        <mat-card-title align="center">{{alumno[0].nombre}}, {{alumno[0].apellido}}</mat-card-title>
+        <mat-card-content >
+          <h2>Tu DNI:  {{ alumno[0].dni}}</h2>
+          <h2>Tu Cumple:  {{ alumno[0].fechaNacimiento | date}}</h2>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="editarAlumno(alumno)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-button color="accent" (click)="verCurso()">Mis Cursos</button>
+          <div *ngIf="cursosInscriptos  != undefined">
+            <div *ngFor="let curso of cursosInscriptos" class="nombreCursos">
+              <h2 class="nombreCursoInsc">{{curso.nombreCurso}}</h2>
+              <button mat-button color="accent" (click)="bajaCurso(curso.nombreCurso)" class="botonCurso">Darme de baja</button>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

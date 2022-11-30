@@ -1,0 +1,28 @@
+<div class="container-login">
+  <form [formGroup]="formulario"  (ngSubmit)="validacionUsuario()" class="form">
+    <div class="row">
+      <div class="col-md-5">
+        <mat-form-field   appearance="fill" class="fill">
+          <mat-label>Usuario</mat-label>
+          <input  matInput formControlName="usuario">
+          <p *ngIf="formulario.get('usuario')?.touched && formulario.get('usuario')?.errors?.['required']"> ¡Este campo es requerido!</p>
+          <p *ngIf="formulario.get('usuario')?.touched && formulario.get('usuario')?.errors?.['email']">¡Formato Email no valido!</p>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <mat-form-field appearance="fill" class="fill">
+          <mat-label>Contraseña</mat-label>
+          <input type="password" matInput formControlName="contrasena">
+          <p *ngIf="formulario.get('contrasena')?.touched && formulario.get('contrasena')?.errors?.['required']"> ¡Este campo es requerido!</p>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2" >
+        <button type="submit" mat-raised-button color="primary">Go</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<p>detalle-cursos works!</p>
+<h3>Detalle curso</h3>
+<div class="container" *ngIf="!!curso">
+<div>
+  nombre curso: {{curso?.nombreCurso}} <br>
+  comision: {{curso?.comision}} <br>
+  fecha incio: {{curso?.fechaInicio | date}} <br>
+  fecha fin: {{curso?.fechaFin | date}}
+</div>
+<br>
+<div>
+  <h3>alumnos inscriptos</h3>
+  <div *ngFor="let el of curso?.inscriptos">
+     <div>
+      nombre:  {{el?.nombre}}
+      <button (click)="bajaAlumno(el.id)" *ngIf="sesion.usuarioActivo?.admin">Baja</button>
+     </div>
+  </div>
+</div>
+</div>
+
+
+
+
+

@@ -1,0 +1,25 @@
+
+<mat-toolbar class="toolbar" color="primary">
+  <mat-toolbar-row class="itemsTool">
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+      <h1 class="logoCurso">MITCURSOS</h1>
+      <p>Bienvenid@! {{sesion.usuarioActivo?.usuario}}</p>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side">
+    <mat-nav-list>
+      <a mat-list-item routerLink="home">Home</a>
+      <a mat-list-item routerLink="courses">Cursos</a>
+      <a mat-list-item routerLink="students/alta-alumno">Mis datos</a>
+      <a mat-list-item routerLink="students" *ngIf="sesion.usuarioActivo?.admin">Alumno</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 100vh;" class="dynamic-container" >
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

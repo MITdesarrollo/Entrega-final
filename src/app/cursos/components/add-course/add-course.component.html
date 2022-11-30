@@ -1,0 +1,61 @@
+<h3>Agregar curso</h3>
+
+<form class="form"  [formGroup]="formulario" (ngSubmit)="agregarCurso()">
+  <div class="row">
+    <div class="col-md-4">
+      <mat-form-field appearance="fill" class="fill">
+        <mat-label>Nombre Curso</mat-label>
+        <input matInput formControlName="nombreCurso">
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field appearance="fill" class="fill">
+        <mat-label>Comision</mat-label>
+        <input matInput formControlName="comision">
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field appearance="fill" class="fill">
+        <mat-label>Profesor</mat-label>
+        <input matInput formControlName="profesor">
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-6">
+      <mat-form-field appearance="fill" class="fill">
+        <mat-label>Fecha Inicio</mat-label>
+        <input matInput [matDatepicker]="fechaInicio" formControlName="inicio">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+        <mat-datepicker #fechaInicio></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="fill" class="fill">
+        <mat-label>Fecha Fin</mat-label>
+        <input matInput [matDatepicker]="fechaFin" formControlName="fin">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+        <mat-datepicker #fechaFin></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+
+    <div class="col-md-4">
+      <mat-form-field appearance="fill" class="fill">
+        <mat-label>image</mat-label>
+        <input matInput formControlName="img">
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-4">
+      <mat-slide-toggle formControlName="inscripcionAbierta">Inscripcion Abierta!</mat-slide-toggle>
+    </div>
+
+    <div class="col-md-12">
+      <button type="submit" mat-raised-button color="primary">Agregar Curso </button>
+    </div>
+
+  </div>
+</form>
+

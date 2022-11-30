@@ -1,0 +1,21 @@
+.formDetalle{
+    margin-top: 2rem;
+    background-image: url(../../../../assets/images/banner-1.png);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid wheat;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    color: white;
+    .editarAlumno{
+        h1{
+            color: white;
+            border-bottom: 1px solid white;
+            margin-top: 2rem;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+          }
+    }
+    
+}
