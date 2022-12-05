@@ -30,13 +30,13 @@
 
           <mat-card-actions align="end">
             <div>
-              <button mat-stroked-button color="accent"  (click)="obtenerCursoAInscribirse(curso.id)" [disabled]="deshabilitado">
+              <button mat-stroked-button color="accent"  (click)="obtenerCursoAInscribirse(curso.id)" [disabled]="deshabilitado" >
                 Inscribirme
               </button>
-              <button mat-icon-button color="primary" (click)="editarCurso(curso)">
+              <button mat-icon-button color="primary" (click)="editarCurso(curso)" *ngIf="sesion.usuarioActivo?.admin">
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button color="warn" (click)="eliminarCurso(curso)">
+              <button mat-icon-button color="warn" (click)="eliminarCurso(curso)" *ngIf="sesion.usuarioActivo?.admin">
                 <mat-icon>delete</mat-icon>
               </button>
               <button mat-icon-button [routerLink]="'/courses/'+ curso.id">

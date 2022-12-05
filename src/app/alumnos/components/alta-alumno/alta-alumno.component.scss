@@ -5,11 +5,18 @@
     background-size: cover;
     background-position: center;
     min-height: 100vh;
-    h1 {
+    .titulo h1 {
+      margin-top: 3rem;
       font-family: "League Spartan", sans-serif;
       color: white;
       font-size: 3rem;
       font-style: italic;
+    }
+    .form-alumno {
+      width: 40%;
+      .mat-form-field {
+        width: 50%;
+      }
     }
   }
 
