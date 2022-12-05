@@ -60,7 +60,6 @@ export class CardsCursosComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sesionSubcription.unsubscribe();
-    
   }
 
   obtenerCursoAInscribirse(id: number) {

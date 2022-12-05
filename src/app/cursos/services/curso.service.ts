@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Curso } from '../models/curso';
-import { BehaviorSubject, catchError, concatMap, map, Observable, throwError } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  concatMap,
+  map,
+  Observable,
+  throwError,
+} from 'rxjs';
 import {
   HttpClient,
   HttpErrorResponse,
@@ -49,16 +56,12 @@ export class CursoService {
       .put<Curso>(`${environment.apiUrl}/curso/${curso.id}`, curso)
       .pipe(catchError(this.manejoError))
       .subscribe();
-    /* poner alerta */
   }
 
   eliminarCurso(id: number) {
     return this.http
       .delete<Curso>(`${environment.apiUrl}/curso/${id}`)
-      .pipe(
-        concatMap(() => this.obtenerCursos())
-      )
-    /* poner alerta */
+      .pipe(concatMap(() => this.obtenerCursos()));
   }
 
   /* esto es para capturar los errores */

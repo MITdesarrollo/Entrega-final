@@ -1,22 +1,20 @@
-
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {Sesion} from "../../login/models/sesion";
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Sesion } from '../../login/models/sesion';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SesionService {
-
   sesionSubject!: BehaviorSubject<Sesion>;
 
   constructor() {
     const sesion: Sesion = {
-      sesionActiva: false
-    }
-    this.sesionSubject = new BehaviorSubject(sesion)
-  };
-  login(usuario: string, contrasena: string, admin: boolean, id: number){
+      sesionActiva: false,
+    };
+    this.sesionSubject = new BehaviorSubject(sesion);
+  }
+  login(usuario: string, contrasena: string, admin: boolean, id: number) {
     const sesion: Sesion = {
       sesionActiva: true,
       usuarioActivo: {
@@ -24,16 +22,16 @@ export class SesionService {
         usuario: usuario,
         contrasena: contrasena,
         admin: admin,
-      }
-    }
-    this.sesionSubject.next(sesion); 
+      },
+    };
+    this.sesionSubject.next(sesion);
   }
 
-  obtenerDatosSesion(): Observable<Sesion>{
+  obtenerDatosSesion(): Observable<Sesion> {
     return this.sesionSubject.asObservable();
   }
 
- /*  logOut(usuario: string, contrasena: string, admin: boolean, id: number){
+  /*  logOut(usuario: string, contrasena: string, admin: boolean, id: number){
     const sesion: Sesion = {
       sesionActiva: true,
       usuarioActivo: {
