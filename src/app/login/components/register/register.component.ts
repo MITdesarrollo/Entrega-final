@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   usuarios$!: Observable<Usuario[]>;
   subscription!: Subscription;
   constructor(
-    private sesioService: SesionService,
     private router: Router,
     private usuarioService: UsuarioService
   ) {

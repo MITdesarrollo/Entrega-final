@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Alumno } from '../../models/alumnos';
 import { AlumnosService } from '../../service/alumnos.service';
 import { Observable, Subscription } from 'rxjs';
@@ -10,6 +10,7 @@ import { Curso } from 'src/app/cursos/models/curso';
 import { CursoService } from 'src/app/cursos/services/curso.service';
 import Swal from 'sweetalert2';
 import { Usuario } from 'src/app/login/models/usuario';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-alta-alumno',
@@ -17,6 +18,7 @@ import { Usuario } from 'src/app/login/models/usuario';
   styleUrls: ['./alta-alumno.component.scss'],
 })
 export class AltaAlumnoComponent implements OnInit, OnDestroy {
+  deshabilitado: boolean = false;
   formularioAltaAlumno!: FormGroup;
   alumno!: Alumno;
   alumnos!: Alumno[];
@@ -49,10 +51,10 @@ export class AltaAlumnoComponent implements OnInit, OnDestroy {
     private cursoService: CursoService
   ) {
     this.formularioAltaAlumno = new FormGroup({
-      dni: new FormControl(),
-      nombre: new FormControl(),
-      apellido: new FormControl(),
-      fechaNacimiento: new FormControl(),
+      dni: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [Validators.required]),
+      apellido: new FormControl('', [Validators.required]),
+      fechaNacimiento: new FormControl('', [Validators.required]),
     });
   }
 
@@ -93,6 +95,10 @@ export class AltaAlumnoComponent implements OnInit, OnDestroy {
   }
 
   altaAlumno() {
+    this.deshabilitado = true;
+    setTimeout(() => {
+      this.deshabilitado = false;
+    }, 3000);
     let idAlumno: number = Math.max.apply(
       null,
       this.alumnos.map((o) => o.id)

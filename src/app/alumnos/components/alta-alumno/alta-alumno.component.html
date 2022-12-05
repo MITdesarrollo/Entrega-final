@@ -7,24 +7,28 @@
           <mat-form-field appearance="fill">
             <mat-label>Dni Alumno</mat-label>
             <input matInput formControlName="dni">
+            <p *ngIf="formularioAltaAlumno.get('dni')?.touched && formularioAltaAlumno.get('dni')?.errors?.['required']"> ¡Este campo es requerido!</p>
           </mat-form-field>
         </div>
         <div class="col-md-12 ">
           <mat-form-field appearance="fill">
             <mat-label>Nombre Alumno</mat-label>
             <input matInput formControlName="nombre">
+            <p *ngIf="formularioAltaAlumno.get('nombre')?.touched && formularioAltaAlumno.get('nombre')?.errors?.['required']"> ¡Este campo es requerido!</p>
           </mat-form-field>
         </div>
         <div class="col-md-12">
           <mat-form-field appearance="fill">
             <mat-label>Apellido Alumno</mat-label>
             <input matInput formControlName="apellido">
+            <p *ngIf="formularioAltaAlumno.get('apellido')?.touched && formularioAltaAlumno.get('apellido')?.errors?.['required']"> ¡Este campo es requerido!</p>
           </mat-form-field>
         </div>
         <div class="col-md-12">
           <mat-form-field appearance="fill" class="fill">
             <mat-label>Fecha de Nacimiento</mat-label>
             <input matInput [matDatepicker]="fechaNacimiento" formControlName="fechaNacimiento">
+            <p *ngIf="formularioAltaAlumno.get('fechaNacimiento')?.touched && formularioAltaAlumno.get('fechaNacimiento')?.errors?.['required']"> ¡Este campo es requerido!</p>
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="fechaNacimiento"></mat-datepicker-toggle>
             <mat-datepicker #fechaNacimiento></mat-datepicker>
@@ -34,7 +38,7 @@
       <div class="row boton text-center">
         <div class="col-md-12">
           <button mat-raised-button color="primary" type="submit" (click)="altaAlumno()"
-                  [disabled]="formularioAltaAlumno.invalid">Alta Alumno
+                  [disabled]="formularioAltaAlumno.invalid" [disabled]="deshabilitado">Alta Alumno
           </button>
         </div>
       </div>
