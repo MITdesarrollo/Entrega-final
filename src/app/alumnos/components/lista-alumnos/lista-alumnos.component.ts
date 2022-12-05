@@ -95,8 +95,8 @@ export class ListaAlumnosComponent implements OnInit, OnDestroy {
     for (let i = 0; i < this.cursosInscriptos.length; i++) {
       this.bajaCurso(this.cursosInscriptos[i].nombreCurso);
     }
-
-    this.router.navigate(['students']);
+    
+    this.alumnos = this.alumnos.filter(el => el.id !== id);
   }
   editarAlumno(alumno: Alumno) {
     this.router.navigate(['students/edit-student', alumno]);

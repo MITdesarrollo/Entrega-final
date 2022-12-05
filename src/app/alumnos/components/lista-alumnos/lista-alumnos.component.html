@@ -1,13 +1,8 @@
 
-
-
-
 <div class="container-fluid">
-  
     <button class="formulario" mat-raised-button color="primary" routerLink="/students/form">Agregar Alumno</button>
-  
   <div class="row">
-    <table mat-table [dataSource]="alumnos$">
+    <table mat-table [dataSource]="alumnos">
      <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>id</th>
       <td mat-cell *matCellDef="let alumno">{{alumno.id}}</td>

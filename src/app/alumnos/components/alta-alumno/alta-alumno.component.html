@@ -38,7 +38,7 @@
       <div class="row boton text-center">
         <div class="col-md-12">
           <button mat-raised-button color="primary" type="submit" (click)="altaAlumno()"
-                  [disabled]="formularioAltaAlumno.invalid" [disabled]="deshabilitado">Alta Alumno
+                  [disabled]="formularioAltaAlumno.invalid || deshabilitado">Alta Alumno
           </button>
         </div>
       </div>
