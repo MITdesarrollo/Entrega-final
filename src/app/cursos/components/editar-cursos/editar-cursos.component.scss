@@ -1,7 +1,12 @@
-.general-cont{
-    margin: auto;
-    padding: 2rem;
-    .mat-form-field{
-        width: 50%;
+.container-fluid{
+    height: 85vh;
+    background-image: url(../../../../assets/images/fondo2.png);
+    background-size: cover;
+    .general-cont{
+        margin: auto;
+        padding: 2rem;
+        .mat-form-field{
+            width: 50%;
+        }
     }
 }

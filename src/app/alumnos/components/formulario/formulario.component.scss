@@ -1,4 +1,10 @@
 
-.container-fluid{
-  
+.cont-general{
+    overflow-x: hidden;
+    height: 90vh;
+    background-image: url(../../../../assets/images/fondo2.png);
+    background-size: cover;
+    .mat-form-field{
+    width: 50%;
+    }
 }

@@ -1,13 +1,15 @@
-<div class="cardContainer">
-    <mat-card>
-        <mat-card-title>
-            <h1 class="title">Datos del Alumno:</h1>
-        </mat-card-title>
-        <mat-card-content>
-           <p>Alumno id: {{alumno.id}}</p> 
-           <h2>Nombre y Apellido: {{alumno.apellido}} {{alumno.nombre}}</h2>
-           <h2>Fecha Nacimiento: {{alumno.fechaNacimiento | date}}</h2>
-           <h2>Dni: {{alumno.dni}}</h2>
-        </mat-card-content>
-    </mat-card>
+<div class="card-Container">
+    <div class="card-detalle">
+        <mat-card>
+            <mat-card-title>
+                <h1 class="title">Datos del Alumno:</h1>
+            </mat-card-title>
+            <mat-card-content>
+               <p>Alumno id: {{alumno.id}}</p> 
+               <h2>Nombre y Apellido: {{alumno.apellido}} {{alumno.nombre}}</h2>
+               <h2>Fecha Nacimiento: {{alumno.fechaNacimiento | date}}</h2>
+               <h2>Dni: {{alumno.dni}}</h2>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

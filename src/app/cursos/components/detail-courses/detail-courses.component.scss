@@ -1,24 +1,29 @@
-.container{
-    .mat-card-lg-image{
-        margin-left: 8rem;
-    }
-    .alumnos-inscrip{
-        margin-top: 2rem;
-        border-radius: 3px;
-        h3{
-            border-bottom: 1px solid #6ccadf;
-            width: fit-content;
+.container-general{
+    height: 90vh;
+    background-image: url(../../../../assets/images/fondo2.png);
+    background-size: cover;
+    background-color: #38312f;
+    .cont-card{
+        margin: 3rem auto auto auto;
+        width: 40%;
+        .mat-card-lg-image{
+            margin-left: 8rem;
         }
-        padding: .5rem;
-        background-color: #38312f;
-        .alumno-nombre{
-        padding: .5rem;
-        border: 1px solid #6ccadf;
-        border-radius: 5px;
-        margin-bottom: 1rem;
+        .alumnos-inscrip{
+            margin-top: 2rem;
+            border-radius: 3px;
+            h3{
+                border-bottom: 1px solid #6ccadf;
+                width: fit-content;
+            }
+            .alumno-nombre{
+            padding: .5rem;
+            border: 1px solid #6ccadf;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            }
         }
     }
-    color: wheat;
-    width: 50%;
-    margin: auto;
+    
+   
 }

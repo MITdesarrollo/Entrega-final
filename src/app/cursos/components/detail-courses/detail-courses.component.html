@@ -1,26 +1,31 @@
-
-<mat-card class="container mt-5" *ngIf="!!curso">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>{{curso?.nombreCurso}}</mat-card-title>
-      <mat-card-subtitle>Comision: {{curso?.comision}}</mat-card-subtitle>
-      <img mat-card-lg-image [src]= "curso.img" >
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    <h3>Fecha incio: {{curso?.fechaInicio | date}}</h3>
-     <h3>Fecha fin: {{curso?.fechaFin | date}}</h3>
-     <h3>Dictado por: {{curso?.profesor}}</h3>
-    
-  <div class="alumnos-inscrip">
-    <h3>Alumnos Inscriptos:</h3>
-  <div *ngFor="let el of curso?.inscriptos" >
-     <div class="alumno-nombre">
-      Nombre:  {{el?.nombre}} {{el?.apellido}}
-      <button mat-button color="accent" (click)="bajaAlumno(el.id)" *ngIf="sesion.usuarioActivo?.admin">Baja</button>
-     </div>
+<div class="container-general">
+  <div class="cont-card">
+    <mat-card  *ngIf="!!curso">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{curso?.nombreCurso}}</mat-card-title>
+          <mat-card-subtitle>Comision: {{curso?.comision}}</mat-card-subtitle>
+          <img mat-card-lg-image [src]= "curso.img" >
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <h3>Fecha incio: {{curso?.fechaInicio | date}}</h3>
+         <h3>Fecha fin: {{curso?.fechaFin | date}}</h3>
+         <h3>Dictado por: {{curso?.profesor}}</h3>
+        
+      <div class="alumnos-inscrip">
+        <h3>Alumnos Inscriptos:</h3>
+      <div *ngFor="let el of curso?.inscriptos" >
+         <div class="alumno-nombre">
+          Nombre:  {{el?.nombre}} {{el?.apellido}}
+          <button mat-button color="accent" (click)="bajaAlumno(el.id)" *ngIf="sesion.usuarioActivo?.admin">Baja</button>
+         </div>
+      </div>
+    </div>
+      </mat-card-content>
+    </mat-card>
   </div>
+ 
 </div>
-  </mat-card-content>
-</mat-card>
+
 

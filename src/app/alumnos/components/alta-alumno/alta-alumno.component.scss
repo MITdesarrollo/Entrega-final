@@ -1,6 +1,4 @@
 .container-form-alumnos {
-  padding: 5rem;
-
   .form {
     display: flex;
     background-image: url(../../../../assets/images/back-form.png);
@@ -29,8 +27,11 @@
     }
   }
   .cont-info {
+    height: 90vh;
+    background-image: url(../../../../assets/images/fondo2.png);
+    background-size: cover;
     .detalleAlumno {
-      margin: auto;
+      margin: 3rem auto auto auto;
       background: linear-gradient(#494342, #494342) padding-box,
         linear-gradient(98deg, #5ce1e6, #ffde59) border-box;
       border-style: solid;
