@@ -15,6 +15,8 @@ import {
   eliminarCurso,
 } from 'src/app/cursos/state/cursos.actions';
 import { selectCursos } from 'src/app/cursos/state/cursos.selectors';
+import Swal from 'sweetalert2';
+import { Alumno } from 'src/app/alumnos/models/alumnos';
 
 @Component({
   selector: 'app-card-cursos',
@@ -30,7 +32,11 @@ export class CardsCursosComponent implements OnInit, OnDestroy {
   sesionSubcription!: Subscription;
   sesion$!: Observable<Sesion>;
 
-  datosAlumno!: any;
+  datosAlumno!: Alumno;
+
+  alumnos$!: Observable<Alumno[]>;
+  alumnosSubs!: Subscription;
+  alumnos!: Alumno[];
 
   nameUsuario!: any;
   constructor(
@@ -54,6 +60,7 @@ export class CardsCursosComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sesionSubcription.unsubscribe();
+    
   }
 
   obtenerCursoAInscribirse(id: number) {
@@ -62,24 +69,57 @@ export class CardsCursosComponent implements OnInit, OnDestroy {
       this.deshabilitado = false;
     }, 3000);
 
-    let nameUsuario = this.sesion.usuarioActivo?.usuario;
-    let datoCurso$: Observable<any> = this.cursosService.obtenerCurso(id);
-    let datoAlumno$: Observable<any> =
-      this.alumnoService.obtenerAlumno(nameUsuario);
-
-    forkJoin({ datoAlumno$, datoCurso$ }).subscribe((el) => {
-      let datoAlumno = el.datoAlumno$[0];
-      let datoCurso = el.datoCurso$;
-
-      let yaInscripto = datoCurso.inscriptos.find(
-        (el: any) => el.nameUsuario === datoAlumno.nameUsuario
+    this.alumnos$ = this.alumnoService.obtenerAlumnos();
+    this.alumnosSubs = this.alumnos$.subscribe((el) => {
+      let alumnoEcontrado = el.find(
+        (el) => el.nameUsuario === this.sesion.usuarioActivo?.usuario
       );
 
-      if (yaInscripto === undefined) {
-        datoCurso.inscriptos = [...datoCurso.inscriptos, datoAlumno];
-        this.cursosService.editarCurso(datoCurso);
+      if (alumnoEcontrado) {
+        let nameUsuario = this.sesion.usuarioActivo?.usuario;
+        let datoCurso$: Observable<any> = this.cursosService.obtenerCurso(id);
+        let datoAlumno$: Observable<any> =
+          this.alumnoService.obtenerAlumno(nameUsuario);
+
+        forkJoin({ datoAlumno$, datoCurso$ }).subscribe((el) => {
+          let datoAlumno = el.datoAlumno$[0];
+          let datoCurso = el.datoCurso$;
+
+          let yaInscripto = datoCurso.inscriptos.find(
+            (el: any) => el.nameUsuario === datoAlumno.nameUsuario
+          );
+
+          if (yaInscripto === undefined) {
+            datoCurso.inscriptos = [...datoCurso.inscriptos, datoAlumno];
+            this.cursosService.editarCurso(datoCurso);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Alta exitosa',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          } else {
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Ya estas inscripto a este curso',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
       } else {
-        console.log('inscripto');
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Debes darte de alta',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setTimeout(() => {
+          this.router.navigate(['students/alta-alumno']);
+        }, 1600);
       }
     });
   }
@@ -89,7 +129,7 @@ export class CardsCursosComponent implements OnInit, OnDestroy {
   }
 
   eliminarCurso(curso: Curso) {
-    this.store.dispatch(eliminarCurso({curso}));
+    this.store.dispatch(eliminarCurso({ curso }));
   }
 
   /* metodos filtrado tablas */

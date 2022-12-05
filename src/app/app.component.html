@@ -1,25 +1,37 @@
-
+<div class="cont-general">
 <mat-toolbar class="toolbar" color="primary">
   <mat-toolbar-row class="itemsTool">
     <button mat-icon-button>
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
-      <h1 class="logoCurso">MITCURSOS</h1>
-      <p>Bienvenid@! {{sesion.usuarioActivo?.usuario}}</p>
+      <h1 class="logo-curso">MITCURSOS</h1>
+      <p>Bienvenid@! <span *ngIf="sesion.usuarioActivo">{{sesion.usuarioActivo?.usuario}}</span> </p>
+      <button mat-icon-button>
+        <mat-icon (click)="logOut()">input</mat-icon>
+      </button>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-sidenav-container>
+<mat-sidenav-container class="cont-side">
   <mat-sidenav #sidenav opened="true" mode="side">
-    <mat-nav-list>
-      <a mat-list-item routerLink="home">Home</a>
-      <a mat-list-item routerLink="courses">Cursos</a>
-      <a mat-list-item routerLink="students/alta-alumno">Mis datos</a>
-      <a mat-list-item routerLink="students" *ngIf="sesion.usuarioActivo?.admin">Alumno</a>
+    <mat-nav-list class="side-icons">
+      <div class="rutas">
+      <a class="redes" [routerLinkActive]="'active'" mat-list-item routerLink="home">INICIO</a>
+      <a class="redes"[routerLinkActive]="'active'"  mat-list-item routerLink="courses">CURSOS</a>
+      <a class="redes" [routerLinkActive]="'active'" mat-list-item routerLink="students/alta-alumno">MIS DATOS</a>
+      <a class="redes"[routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" mat-list-item routerLink="students" *ngIf="sesion.usuarioActivo?.admin">ALUMNOS</a>
+      </div>
+      <div>
+      <a  target="_blank" mat-list-item href="https://www.linkedin.com/in/mariel-torres-front-end/"> <img class="icon-redes" src="../assets/images/linkedin (2).png" alt="linkedin"></a>
+      <a  target="_blank" mat-list-item href="https://github.com/MITdesarrollo"> <img class="icon-redes" src="../assets/images/github (3).png" alt="github"></a>
+      <a  mat-list-item [cdkCopyToClipboard]="'marieltorres97@gmail.com'"  (click)="copie()"> <img class="icon-redes" src="../assets/images/gmail.png" alt="gmail"></a>
+      </div>
+      <div>
+        <p style="font-size: .6rem; margin-left:.5rem; ">Copyright © 2022 <br> Mariel Torres</p>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <div style="height: 100vh;" class="dynamic-container" >
+  <mat-sidenav-content class="main-content">
       <router-outlet></router-outlet>
-    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+</div> 

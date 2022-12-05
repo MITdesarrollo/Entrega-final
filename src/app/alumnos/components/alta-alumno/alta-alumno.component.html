@@ -1,6 +1,6 @@
 <div class="container-fluid container-form-alumnos">
-  <div ngClass="form" *ngIf="alumnoData as alumno">
-  <form [formGroup]="formularioAltaAlumno"  class="formAlumno">
+  <div ngClass="form" *ngIf="dadoAlta != undefined && !dadoAlta">
+  <form [formGroup]="formularioAltaAlumno"  class="formAlumno" *ngIf="alumnoData as alumno">
     <div *ngIf="alumno.length === 0">
       <div class="row">
         <div class="col-md-12">
@@ -44,8 +44,8 @@
     <h1>Completa tus datos!!</h1>
   </div>
 </div>
-  <div *ngIf="dadoAlta" class="detalleAlumno">
-    <div *ngIf="alumnoData as alumno">
+  <div *ngIf="dadoAlta" class="cont-info">
+    <div *ngIf="alumnoData as alumno" class="detalleAlumno">
       <mat-card class="example-card" *ngIf="alumno.length > 0">
         <mat-card-title>Alumno:</mat-card-title>
         <mat-card-title align="center">{{alumno[0].nombre}}, {{alumno[0].apellido}}</mat-card-title>
@@ -67,5 +67,4 @@
         </mat-card-actions>
       </mat-card>
     </div>
-  </div>
 </div>

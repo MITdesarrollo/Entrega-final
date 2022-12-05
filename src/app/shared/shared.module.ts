@@ -5,7 +5,7 @@ import { TitleStyleDirective } from './directives/title-style.directive';
 import {MaterialModule} from "./material/material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
-
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ClipboardModule
   ],
   exports: [
     MaterialModule,
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BooleanStyleDirective,
     TitleStyleDirective,
-    HttpClientModule
+    HttpClientModule,
+    ClipboardModule
   ]
 })
 export class SharedModule { }

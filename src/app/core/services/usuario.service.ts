@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, Subscription, throwError } from 'rxjs';
+import {  Observable} from 'rxjs';
 import { Usuario } from 'src/app/login/models/usuario';
 import { environment } from 'src/environments/environment';
 

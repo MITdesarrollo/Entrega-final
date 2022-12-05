@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {UsuarioService} from 'src/app/core/services/usuario.service';
 import {Usuario} from '../../models/usuario';
 import {Observable, Subscription} from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -49,14 +50,24 @@ export class LoginComponent implements OnInit, OnDestroy {
       if (encontrarUsuario?.contrasena === formPass) {
         this.validacion = encontrarUsuario
         this.sesioService.login(encontrarUsuario.usuario, encontrarUsuario.contrasena, encontrarUsuario.admin, encontrarUsuario.id);
-        console.log('aca');
-        
         this.router.navigate(['/students/alta-alumno'])
       } else {
-        alert('contraseña incorrecta')
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'contraseña incorrecta',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     } else {
-      alert('usuario incorrecto')
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'usuario icorrecto',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 }

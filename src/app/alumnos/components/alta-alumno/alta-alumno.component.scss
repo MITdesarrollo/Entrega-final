@@ -1,24 +1,17 @@
 .container-form-alumnos{
     padding: 5rem;
+   
     .form{
         display: flex;
-        padding: 4rem;
         background-image: url(../../../../assets/images/back-form.png);
         background-size: cover;
         background-position: center;
-        border: 1px solid wheat;
-        border-radius: 10px;
-        width: 100%;
+        min-height: 100vh;
         h1{
             font-family: 'League Spartan', sans-serif;
             color:  white;
             font-size: 3rem;
             font-style: italic;
-        }
-        
-        .formAlumno{
-            width: 35%;
-            
         }
     }
 
@@ -36,4 +29,20 @@
             margin-bottom: 0;
          }
     }
+    .cont-info{
+        
+        .detalleAlumno{
+            margin-left: 10%;
+            background: linear-gradient(#494342, #494342) padding-box, 
+            linear-gradient(98deg,#5CE1E6, #FFDE59)border-box;
+            border-style: solid;
+            border-width: .3rem;
+            border-color: transparent;
+            border-image-slice: 1;
+            border-radius: 10px;
+            padding: 1rem;
+            
+        }
+    }
+    
 }

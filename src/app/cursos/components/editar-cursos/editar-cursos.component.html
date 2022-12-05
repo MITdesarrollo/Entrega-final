@@ -1,25 +1,25 @@
-<form class="form"  [formGroup]="formulario" (ngSubmit)="editarCurso()">
-  <div class="row">
-    <div class="col-md-4">
-      <mat-form-field appearance="fill" class="fill">
+<form class="container-fluid text-center mt-4" [formGroup]="formulario" (ngSubmit)="editarCurso()">
+  <div class="row general-cont">
+    <div class="col-md-6" align="end">
+      <mat-form-field appearance="fill" >
         <mat-label>Nombre Curso</mat-label>
         <input matInput formControlName="nombreCurso">
       </mat-form-field>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6" align="start">
       <mat-form-field appearance="fill" class="fill">
         <mat-label>Comision</mat-label>
         <input matInput formControlName="comision">
       </mat-form-field>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6" align="end">
       <mat-form-field appearance="fill" class="fill">
         <mat-label>Profesor</mat-label>
         <input matInput formControlName="profesor">
       </mat-form-field>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6" align="start">
       <mat-form-field appearance="fill" class="fill">
         <mat-label>Fecha Inicio</mat-label>
         <input matInput [matDatepicker]="fechaInicio" formControlName="inicio">
@@ -28,7 +28,7 @@
         <mat-datepicker #fechaInicio></mat-datepicker>
       </mat-form-field>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" align="end">
       <mat-form-field appearance="fill" class="fill">
         <mat-label>Fecha Fin</mat-label>
         <input matInput [matDatepicker]="fechaFin" formControlName="fin">
@@ -39,18 +39,18 @@
     </div>
 
 
-    <div class="col-md-4">
+    <div class="col-md-6" align="start">
       <mat-form-field appearance="fill" class="fill">
         <mat-label>image</mat-label>
         <input matInput formControlName="img">
       </mat-form-field>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6" align="end">
       <mat-slide-toggle formControlName="inscripcionAbierta">Inscripcion Abierta!</mat-slide-toggle>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-6" align="start">
       <button type="submit" mat-raised-button color="primary">Guardar Cambios </button>
     </div>
 

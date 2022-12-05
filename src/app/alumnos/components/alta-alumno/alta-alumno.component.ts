@@ -40,7 +40,7 @@ export class AltaAlumnoComponent implements OnInit , OnDestroy{
   cursos!: Curso[]
 
   cursosInscriptos! : any;
-  dadoAlta: boolean = false;
+  dadoAlta!: boolean;
 
   constructor(
     private alumnoService: AlumnosService,
@@ -69,7 +69,7 @@ export class AltaAlumnoComponent implements OnInit , OnDestroy{
     this.observableDataTraida$ =  this.alumnoService.obtenerAlumno(this.sesion.usuarioActivo?.usuario)
     this.suscripcion = this.observableDataTraida$.subscribe((dataAlumno: Alumno[]) => {
       this.alumnoData = dataAlumno
-      this.alumnoData.length >= 1 ? this.dadoAlta = true : null;
+      this.alumnoData.length >= 1 ? this.dadoAlta = true : this.dadoAlta = false;
     })
 
     this.curso$ = this.cursoService.obtenerCursos()
@@ -102,7 +102,7 @@ export class AltaAlumnoComponent implements OnInit , OnDestroy{
     setTimeout(() => {
       this.observableDataTraida$.subscribe((dataAlumno: Alumno[]) => {
         this.alumnoData = dataAlumno;
-        this.alumnoData.length >= 1 ? this.dadoAlta = true : null;
+        this.alumnoData.length >= 1 ? this.dadoAlta = true :  this.dadoAlta = false;
       })
     }, 1000)
   }
@@ -125,7 +125,9 @@ export class AltaAlumnoComponent implements OnInit , OnDestroy{
             } else {
                 console.log('no coincide')
             }
+             
         })
+   
     })
     
     

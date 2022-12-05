@@ -5,7 +5,7 @@ import {FormularioComponent} from "./components/formulario/formulario.component"
 import {EditarAlumnoComponent} from "./components/editar-alumno/editar-alumno.component";
 import { DetalleAlumnosComponent } from './components/detalle-alumnos/detale-alumnos.component';
 import { AltaAlumnoComponent } from './components/alta-alumno/alta-alumno.component';
-import {AdminGuard} from "../core/guards/admin.guard";
+
 const routes: Routes = [
   {path: '', children: [
       {path: '', component: ListaAlumnosComponent},

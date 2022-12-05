@@ -1,34 +1,25 @@
-<div class="container-fluid text-center container-form-alumnos ">
-  <div class="row">
-    <div class="col-md-12 alta-alumno">
-      <h1 appTitleEstilo>Alta Alumno</h1>
-    </div>
-  </div>
-  <form [formGroup]="formularioAlumno" >
-  <div class="row datos">
-    <div class="col-md-12">
+ <form [formGroup]="formularioAlumno" class="container  mt-5">
+  <div class="row ">
+    <div class="col-md-7">
       <mat-form-field appearance="fill" >
         <mat-label>Dni Alumno</mat-label>
         <input matInput formControlName="dni">
     </mat-form-field>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-7">
       <mat-form-field appearance="fill" >
         <mat-label>NombreAlumno</mat-label>
         <input matInput formControlName="nombre">
     </mat-form-field>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-7">
       <mat-form-field appearance="fill" >
         <mat-label>Apellido Alumno</mat-label>
         <input matInput formControlName="apellido">
     </mat-form-field>
     </div>
-  
-  </div>
-  <div class="row datos">
-    <div class="col-md-12">
-      <mat-form-field appearance="fill" class="fill">
+    <div class="col-md-7">
+      <mat-form-field appearance="fill">
           <mat-label >Fecha de Nacimiento</mat-label>
           <input matInput [matDatepicker]="fechaNacimiento" formControlName="fechaNacimiento" >
           <mat-hint>MM/DD/YYYY</mat-hint>
@@ -36,11 +27,8 @@
           <mat-datepicker #fechaNacimiento></mat-datepicker>
       </mat-form-field>
   </div>
-  </div>
-  <div class="row datos">
-    <div class="col-md-12">
+    <div class="col-md-7">
       <button mat-raised-button color="primary" type="submit" (click)="guardarAlumno()" [disabled]="formularioAlumno.invalid">Agregar Alumno</button>
   </div>
   </div>
 </form>
-</div>
