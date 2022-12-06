@@ -43,8 +43,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   validacionUsuario() {
-    const formUsuario = this.formulario.value.usuario;
-    const formPass = this.formulario.value.contrasena;
+    const formUsuario = this.formulario.get('usuario')!.value;
+    const formPass = this.formulario.get('contrasena')!.value;
     const encontrarUsuario = this.usuarios.find(
       (el) => el.usuario === formUsuario
     );
