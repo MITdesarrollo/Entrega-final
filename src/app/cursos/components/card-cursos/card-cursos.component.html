@@ -21,7 +21,7 @@
 
           <mat-card-content>
             <p>Dictado por {{ curso.profesor }}</p>
-            <p>Inicial el {{ curso.fechaInicio | date: "dd/MM/YYYY" }}</p>
+            <p>Inicia el {{ curso.fechaInicio | date: "dd/MM/YYYY" }}</p>
             <p>Finaliza el {{ curso.fechaFin | date: "dd/MM/YYYY" }}</p>
             <p [appBooleanStyle]="curso.inscripcionAbierta">
               {{curso.inscripcionAbierta | booleanText: "Matricula abierta":"Matricula cerrada" | uppercase }}
