@@ -30,7 +30,6 @@ export class EditarAlumnoComponent implements OnInit, OnDestroy {
     private sesionService: SesionService
   ) {
     this.activatedRoute.paramMap.subscribe((parametros) => {
-      console.log(parametros);
       this.id = parseInt(parametros.get('id') || '');
       this.formularioAlumno = new FormGroup({
         dni: new FormControl(parametros.get('dni')),

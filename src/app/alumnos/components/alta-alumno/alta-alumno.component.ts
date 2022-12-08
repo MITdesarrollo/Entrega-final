@@ -138,7 +138,6 @@ export class AltaAlumnoComponent implements OnInit, OnDestroy {
         if (inscriptos.id == this.alumnoData[0].id) {
           arrayCursos.push(nameCurso);
         } else {
-          console.log('no coincide');
         }
       });
     });

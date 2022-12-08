@@ -10,7 +10,7 @@ import { AlumnosService } from '../../service/alumnos.service';
   styleUrls: ['./detale-alumnos.component.scss'],
 })
 export class DetalleAlumnosComponent implements OnInit {
-  alumno$!: Observable<Alumno>;
+  alumno$!: Observable<Alumno>
   alumnoSub!: Subscription;
   alumno!: Alumno;
   constructor(

@@ -21,7 +21,7 @@ export class AddCourseComponent implements OnInit {
       inscripcionAbierta: new FormControl('', [Validators.required]),
       img: new FormControl(),
     });
-    console.log(this.formulario.value);
+    
   }
   agregarCurso() {
     const curso: Curso = {
@@ -34,7 +34,7 @@ export class AddCourseComponent implements OnInit {
       inscripcionAbierta: this.formulario.value.inscripcionAbierta,
       img: this.formulario.value.img,
     };
-    console.log(curso);
+    
     this.cursoService.agregarCurso(curso);
     this.router.navigate(['/courses']);
   }

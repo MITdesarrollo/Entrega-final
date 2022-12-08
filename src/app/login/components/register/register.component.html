@@ -21,7 +21,7 @@
           <div class="col-md-5">
             <mat-form-field appearance="fill" class="fill">
               <mat-label>Contraseña</mat-label>
-              <input matInput formControlName="contrasena">
+              <input matInput formControlName="contrasena" type="password">
               <p *ngIf="formularioRegister.get('contrasena')?.touched && formularioRegister.get('contrasena')?.errors?.['required']"> ¡Este campo es requerido!</p>
               <p *ngIf="formularioRegister.get('contrasena')?.touched && formularioRegister.get('contrasena')?.errors?.['minlength']">¡La contraseña debe tener al menos 6 caracteres!</p>
             </mat-form-field>

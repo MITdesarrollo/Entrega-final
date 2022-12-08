@@ -20,7 +20,7 @@ export class EditarCursosComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRouted.paramMap.subscribe((parametros) => {
-      console.log(parametros);
+      
       this.id = parseInt(parametros.get('id') || '');
       this.formulario = new FormGroup({
         nombreCurso: new FormControl(parametros.get('nombreCurso')),

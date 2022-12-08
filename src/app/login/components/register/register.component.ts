@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       contrasena: this.formularioRegister.value.contrasena,
       admin: this.formularioRegister.value.admin,
     };
-    console.log(usuario);
+  
     this.usuarioService.agregarUsuario(usuario);
     this.router.navigate(['/login']);
   }

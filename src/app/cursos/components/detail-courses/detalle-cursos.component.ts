@@ -28,7 +28,7 @@ export class DetailCoursesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activaRoute.paramMap.subscribe((parametros) => {
-      console.log(parametros.get('id'));
+      
       let id = parseInt(parametros.get('id') || '0');
       this.curso$ = this.cursoService.obtenerCurso(id);
     });
@@ -49,7 +49,7 @@ export class DetailCoursesComponent implements OnInit, OnDestroy {
     this.curso.inscriptos = this.curso.inscriptos?.filter(
       (idInscripto) => idInscripto.id != id
     );
-    console.log(this.curso);
+    
     this.cursoService.editarCurso(this.curso);
   }
 }
