@@ -35,3 +35,14 @@
     color: white;
   }
 }
+@media screen and (max-width: 992px) {
+  .container-login {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container-login {
+    width: 90%;
+  }
+}

@@ -42,7 +42,18 @@
     }
   }
 }
+@media screen and (max-width: 992px) {
+  .cont-general-video{
+    .container-register {
+      width: 60%;
+    }
+  }
+}
 
-/* background: #5CE1E6;
-  background: -webkit-linear-gradient(to right,#5CE1E6,#FFDE59 );
-  background: linear-gradient(to right, #5CE1E6, #FFDE59); */
+@media screen and (max-width: 576px) {
+  .cont-general-video{
+    .container-register {
+      width: 90%;
+    }
+  }
+}
