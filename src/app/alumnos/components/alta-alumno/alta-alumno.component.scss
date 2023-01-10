@@ -6,7 +6,6 @@
     background-position: center;
     min-height: 100vh;
     .titulo h1 {
-    
       margin-top: 18rem;
       font-family: "League Spartan", sans-serif;
       color: white;
@@ -52,11 +51,25 @@
     }
   }
 }
+
+@media screen and (max-width: 1400px) {
+  .container-form-alumnos {
+    .form {
+      .titulo h1 {
+        line-height: 3rem;
+        margin-top: 10rem;
+      }
+    }
+  }
+
+}
+
 @media screen and (max-width: 992px) {
   .form {
     flex-direction: column;
     background-image: none!important;
     .titulo h1 {
+      margin-top: 2rem!important;
       order: 0;
     }
     .form-alumno {
@@ -75,7 +88,7 @@
 @media screen and (max-width: 576px) {
   .form {
     .titulo h1 {
-      font-size: 1.5rem;
+      font-size: 1.5rem!important;
     }
     .form-alumno {
       order: 1;
