@@ -1,19 +1,26 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable, OnInit } from '@angular/core';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { Sesion } from '../../login/models/sesion';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SesionService {
-  sesionSubject!: BehaviorSubject<Sesion>;
+  sesionSubject: ReplaySubject<Sesion> = new ReplaySubject();
 
   constructor() {
-    const sesion: Sesion = {
-      sesionActiva: false,
-    };
-    this.sesionSubject = new BehaviorSubject(sesion);
+    let sesion: Sesion;
+    const sesionGuardada = localStorage.getItem('sesion');
+    if (sesionGuardada) {
+      sesion = JSON.parse(sesionGuardada);
+    } else {
+      sesion = {
+        sesionActiva: false,
+      };
+    }
+    this.sesionSubject.next(sesion);
   }
+
   login(usuario: string, contrasena: string, admin: boolean, id: number) {
     const sesion: Sesion = {
       sesionActiva: true,
@@ -24,6 +31,7 @@ export class SesionService {
         admin: admin,
       },
     };
+    localStorage.setItem('sesion', JSON.stringify(sesion));
     this.sesionSubject.next(sesion);
   }
 

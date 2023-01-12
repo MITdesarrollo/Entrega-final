@@ -1,6 +1,6 @@
 {
   "name": "mariel-torres-angular",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,6 @@
     "test": "ng test",
     "deploy": "vercel --prod"
   },
-
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
@@ -25,6 +24,7 @@
     "@ngrx/effects": "^14.3.2",
     "@ngrx/store": "^14.3.2",
     "@ngrx/store-devtools": "^14.3.2",
+    "ngx-spinner": "^14.0.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.6.14",
     "tslib": "^2.3.0",

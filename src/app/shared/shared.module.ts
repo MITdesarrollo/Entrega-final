@@ -7,7 +7,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 
-
 @NgModule({
   declarations: [
     BooleanStyleDirective,
